@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <title> Juego de memoria </title>
+    
+</head>
+<body>
+    <style>
+        body{
+    background: linear-gradient(90deg, rgb(0, 124, 195) 0%, rgb(221, 224, 228) 52%, rgb(143, 195, 71) 100%);
+    font-family: sans-serif;
+    color:white;
+}
+
+main{
+    width: 730px;
+    margin: 50px auto 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section1{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 30px 30px 30px 30px;
+    border-radius: 8px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+h1{
+    text-align: center;
+    
+    
+}
+
+button{
+    height: 135px;
+    width: 135px;
+    color: rgb(255, 255, 255);
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.section2{
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 8px;
+    border-radius: 8px;
+    width: 810px;
+    height: fit-content;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.score{
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+
+}
+
+.reset{
+    margin: 50px;
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000;
+}
+
+img{
+    width: 110px;
+}
+
+div .info{
+    flex: 1;
+}
+
+    </style>
+    <main>
+        <h1>Concentrate con TQI</h1>
+        <section class="section2">
+            <div class="info"><h2 id="aciertos" class="score">ACIERTOS: 0</h2></div>
+            <div class="info"><h2 id="tiempo" class="score">TIEMPO: 50 </h2></div>
+            <div class="info"><h2 id="movimientos" class="score">MOVIMIENTOS: 0</h2></div>
+            <!--<button class="score" onclick="location.reload()"> reiniciar </button>-->
+        </section>
+        <section class="section1">
+            <table id="grilla_de_juego">
+
+                <tr>
+                    <td><button id="0" onclick="destapa(0)"></button></td>
+                    <td><button id="1" onclick="destapa(1)"></button></td>
+                    <td><button id="2" onclick="destapa(2)"></button></td>
+                    <td><button id="3" onclick="destapa(3)"></button></td>
+                    <td><button id="4" onclick="destapa(4)"></button></td>
+                    <td><button id="5" onclick="destapa(5)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="6" onclick="destapa(6)"></button></td>
+                    <td><button id="7" onclick="destapa(7)"></button></td>
+                    <td><button id="8" onclick="destapa(8)"></button></td>
+                    <td><button id="9" onclick="destapa(9)"></button></td>
+                    <td><button id="10" onclick="destapa(10)"></button></td>
+                    <td><button id="11" onclick="destapa(11)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="12" onclick="destapa(12)"></button></td>
+                    <td><button id="13" onclick="destapa(13)"></button></td>
+                    <td><button id="14" onclick="destapa(14)"></button></td>
+                    <td><button id="15" onclick="destapa(15)"></button></td>
+                    <td><button id="16" onclick="destapa(16)"></button></td>
+                    <td><button id="17" onclick="destapa(17)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="18" onclick="destapa(18)"></button></td>
+                    <td><button id="19" onclick="destapa(19)"></button></td>
+                    <td><button id="20" onclick="destapa(20)"></button></td>
+                    <td><button id="21" onclick="destapa(21)"></button></td>
+                    <td><button id="22" onclick="destapa(22)"></button></td>
+                    <td><button id="23" onclick="destapa(23)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="24" onclick="destapa(24)"></button></td>
+                    <td><button id="25" onclick="destapa(25)"></button></td>
+                    <td><button id="26" onclick="destapa(26)"></button></td>
+                    <td><button id="27" onclick="destapa(27)"></button></td>
+                    <td><button id="28" onclick="destapa(28)"></button></td>
+                    <td><button id="29" onclick="destapa(29)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="30" onclick="destapa(30)"></button></td>
+                    <td><button id="31" onclick="destapa(31)"></button></td>
+                    <td><button id="32" onclick="destapa(32)"></button></td>
+                    <td><button id="33" onclick="destapa(33)"></button></td>
+                    <td><button id="34" onclick="destapa(34)"></button></td>
+                    <td><button id="35" onclick="destapa(35)"></button></td>
+                </tr>
+                
+            </table>
+        </section>
+    </main>
+
+<script>
+
+let tarjetas = 0;
+let tarjeta1 = null;
+let tarjeta2 = null;
+let firts1 = null;
+let second2 = null;
+let movimientos = 0;
+let aciertos = 0;
+let temporizador = false;
+let timer = 50;
+let timerI = 50;
+let tiempoRegresivoId = null;
+
+let winAudio = new Audio('./sonido/win.wav');
+let loseAudio = new Audio('./sonido/lose.wav');
+let siAudio = new Audio('./sonido/si.wav');
+let noAudio = new Audio('./sonido/no.wav');
+let clickAudio = new Audio('./sonido/click.wav');
+
+let mostrarMovimientos = document.getElementById('movimientos');
+let mostarAciertos = document.getElementById('aciertos');
+let mostrarTiempo = document.getElementById('tiempo');
+let grillaJuego = document.getElementById('grilla_de_juego');
+
+//generador de numeros aleatorios
+let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,16,16,17,17,18,18];
+numeros = numeros.sort(() => {return Math.random() - 0.5});
+
+function contarTiempo(){
+    tiempoRegresivoId = setInterval(() =>{
+        timer--;
+        mostrarTiempo.innerHTML = `TIEMPO: ${timer}`;
+        if(timer == 0){
+            clearInterval(tiempoRegresivoId);
+            bloquearTarjetas(numeros);
+            loseAudio.play();
+        }
+    },1000);
+}
+
+function bloquearTarjetas(){
+    for (let i = 0; i <=35; i++){
+        let tarjetaBloc = document.getElementById(i);
+        tarjetaBloc.innerHTML = `<img src="./TQI/${numeros[i]}.png" alt="">`;
+        tarjetaBloc.disabled = true;
+    }
+            
+}
+
+function setGrilla(numCol, numFil){
+    for(i = 0; i < numCol; i++){
+        let 
+    }
+
+}    
+
+//funcion principal
+function destapa(id){
+
+    if(temporizador == false){
+        contarTiempo();
+        temporizador = true;
+
+    }
+
+    tarjetas++;
+
+    if (tarjetas == 1){
+        //mostrar numeros
+        tarjeta1 = document.getElementById(id);
+        firts1 = numeros[id];
+        tarjeta1.innerHTML = `<img src="./TQI/${firts1}.png" alt="">`;
+        clickAudio.play();
+
+        tarjeta1.disabled = true;
+
+    }else if(tarjetas == 2){
+        tarjeta2 = document.getElementById(id)
+        second2 = numeros[id];
+        tarjeta2.innerHTML = `<img src="./TQI/${second2}.png" alt="">`;
+        clickAudio.play();
+
+        tarjeta2.disabled = true;
+
+        movimientos++;
+        mostrarMovimientos.innerHTML = `MOVIMIENTOS: ${movimientos}`;
+
+        if(firts1 == second2){
+            tarjetas = 0;
+
+            aciertos++;
+            mostarAciertos.innerHTML = `ACIERTOS: ${aciertos}`;
+            siAudio.play();
+
+            //final
+            if(aciertos == 18){
+                winAudio.play();
+                clearInterval(tiempoRegresivoId);
+                mostarAciertos.innerHTML = `ACIERTOS: ${aciertos}`
+                mostrarTiempo.innerHTML = `DEMORASTE: ${timerI - timer} SEGUNDOS `
+                mostrarMovimientos.innerHTML = `MOVIMIENTOS: ${movimientos}`
+
+            }
+
+        }else{
+            noAudio.play();
+            setTimeout(() =>{
+                tarjeta1.innerHTML = ' ';
+                tarjeta2.innerHTML = ' ';
+                tarjeta1.disabled = false;
+                tarjeta2.disabled = false;
+                tarjetas = 0;
+            },350);
+        }
+    }
+}
+
+</script>
+
+<script src="java/main3.js"></script>
+</body>
+</html>
